@@ -20,8 +20,6 @@ class AbstractQuarter(models.Model):
     description = models.TextField()
     capacity = models.IntegerField()
     price = models.IntegerField()
-    check_Out = models.DateTimeField()
-    check_In = models.DateTimeField()
     facility = models.PositiveSmallIntegerField(choices=FACILITY_CHOICES, default=FREE_WIFI)
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     created_time = models.DateTimeField(auto_now_add=True)
@@ -41,12 +39,12 @@ class Hotel(models.Model):
     avatar = None
 
 
-class General_Avatar(models.Model):
+class GeneralAvatar(models.Model):
     avatar = models.ImageField(upload_to='quarter/hotel/avatar')
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
 
 
-class Detail_Avatar(models.Model):
+class DetailAvatar(models.Model):
     avatar = models.ImageField(upload_to='quarter/quarter/avatar')
     quarter = models.ForeignKey(AbstractQuarter, on_delete=models.CASCADE)
 
