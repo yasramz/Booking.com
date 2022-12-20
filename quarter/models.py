@@ -42,12 +42,12 @@ class Hotel(models.Model):
 
 
 class General_Avatar(models.Model):
-    avatar = models.ImageField(upload_to='Quarter/hotel/avatar')
+    avatar = models.ImageField(upload_to='quarter/hotel/avatar')
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
 
 
 class Detail_Avatar(models.Model):
-    avatar = models.ImageField(upload_to='Quarter/quarter/avatar')
+    avatar = models.ImageField(upload_to='quarter/quarter/avatar')
     quarter = models.ForeignKey(AbstractQuarter, on_delete=models.CASCADE)
 
 
