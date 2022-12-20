@@ -11,7 +11,7 @@ class User(AbstractUser):
                                                            message="Minimum eight characters, at least one letter and "
                                                                    "one number")])
     USERNAME_FIELD = "phone_number"
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ["username"]
 
     def __str__(self):
         return self.username

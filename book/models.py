@@ -18,6 +18,9 @@ class AbstractVehicleReservation(models.Model):
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        abstract=True
+
 
 class AirplaneReservation(AbstractVehicleReservation):
     airplane = models.ForeignKey(Airplane, on_delete=models.CASCADE)
