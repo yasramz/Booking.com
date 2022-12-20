@@ -24,6 +24,8 @@ class AbstractQuarter(models.Model):
     check_In = models.DateTimeField()
     facility = models.PositiveSmallIntegerField(choices=FACILITY_CHOICES, default=FREE_WIFI)
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    created_time = models.DateTimeField(auto_now_add=True)
+    modified_time = models.DateTimeField(auto_now=True)
 
     class Mete:
         abstract = True
