@@ -32,7 +32,7 @@ class Profile(models.Model):
     modified_time = models.DateTimeField(auto_now=True)
 
 
-class Bank_Info(models.Model):
+class BankInfo(models.Model):
     account_number = models.IntegerField()
     shaba_number = models.IntegerField()
     card_number = models.IntegerField()
