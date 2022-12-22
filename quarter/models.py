@@ -39,7 +39,7 @@ class Hotel(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     # available = models.IntegerField()
-    avatar = None
+    # avatar = None
     is_valid = models.BooleanField(default=True)
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
@@ -77,3 +77,4 @@ class HotelRoom(AbstractQuarter):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
     # availableness = None
     is_valid = models.BooleanField(default=True)
+a
