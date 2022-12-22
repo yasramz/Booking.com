@@ -4,31 +4,33 @@ from django.contrib.admin.options import TabularInline
 
 
 class AdminLocation(admin.ModelAdmin):
-    list_display = ('address', )
-    search_fields = ('address',)
+    list_display = ('address', 'is_valid',)
+    search_fields = ('address', 'is_valid')
 
 
 class AdminGeneralAvatar(admin.ModelAdmin):
     list_display = ('avatar', )
+    search_fields = ('is_valid',)
 
 
 class AdminDetailAvatar(admin.ModelAdmin):
-    list_display = ('avatar', )
+    list_display = ('avatar',  'is_valid',)
+    search_fields = ('is_valid',)
 
 
 class AdminVilla(admin.ModelAdmin):
-    list_display = ('title', )
-    search_fields = ('title',)
+    list_display = ('title', 'is_valid', )
+    search_fields = ('title', 'is_valid', )
 
 
 class AdminHotel(admin.ModelAdmin):
-    list_display = ('title', )
-    search_fields = ('title',)
+    list_display = ('title', 'is_valid', )
+    search_fields = ('title', 'is_valid', )
 
 
 class AdminHotelRoom(admin.ModelAdmin):
-    list_display = ('title', )
-    search_fields = ('title',)
+    list_display = ('title', 'is_valid',)
+    search_fields = ('title', 'is_valid',)
 
 
 admin.site.register(Location, AdminLocation)
