@@ -43,6 +43,7 @@ class Airplane(AbstractVehicle):
 
     gate = models.CharField(max_length=150)
     flight_type = models.PositiveSmallIntegerField(choices=FLIGHT_TYPE_CHOICES, default=1)
+    is_valid = models.BooleanField(default=True)
 
 
 # class AirplaneTicket(models.Model):

@@ -4,6 +4,9 @@ from django.db import models
 class Location(models.Model):
     address = models.TextField()
     map_link = models.TextField()
+    is_valid = models.BooleanField(default=True)
+    created_time = models.DateTimeField(auto_now_add=True)
+    modified_time = models.DateTimeField(auto_now=True)
 
 
 class AbstractQuarter(models.Model):
@@ -37,16 +40,25 @@ class Hotel(models.Model):
     description = models.TextField()
     # available = models.IntegerField()
     avatar = None
+    is_valid = models.BooleanField(default=True)
+    created_time = models.DateTimeField(auto_now_add=True)
+    modified_time = models.DateTimeField(auto_now=True)
 
 
 class GeneralAvatar(models.Model):
     avatar = models.ImageField(upload_to='quarter/hotel/avatar')
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
+    is_valid = models.BooleanField(default=True)
+    created_time = models.DateTimeField(auto_now_add=True)
+    modified_time = models.DateTimeField(auto_now=True)
 
 
 class DetailAvatar(models.Model):
     avatar = models.ImageField(upload_to='quarter/quarter/avatar')
     quarter = models.ForeignKey(AbstractQuarter, on_delete=models.CASCADE)
+    is_valid = models.BooleanField(default=True)
+    created_time = models.DateTimeField(auto_now_add=True)
+    modified_time = models.DateTimeField(auto_now=True)
 
 
 class Villa(AbstractQuarter):
@@ -58,8 +70,10 @@ class Villa(AbstractQuarter):
     )
 
     Available = models.PositiveSmallIntegerField(choices=AVAILABLENESS_CHOICES, default=AVAILABLE)
+    is_valid = models.BooleanField(default=True)
 
 
 class HotelRoom(AbstractQuarter):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
     # availableness = None
+    is_valid = models.BooleanField(default=True)

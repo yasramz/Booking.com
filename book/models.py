@@ -24,6 +24,7 @@ class AbstractVehicleReservation(models.Model):
 
 class AirplaneReservation(AbstractVehicleReservation):
     airplane = models.ForeignKey(Airplane, on_delete=models.CASCADE)
+    is_valid = models.BooleanField(default=True)
 
 
 class AbstractQuarterReservation(models.Model):
@@ -47,7 +48,9 @@ class AbstractQuarterReservation(models.Model):
 
 class HotelReservation(AbstractQuarterReservation):
     hotel = models.ForeignKey(HotelRoom, on_delete=models.CASCADE)
+    is_valid = models.BooleanField(default=True)
 
 
 class VillaReservation(AbstractQuarterReservation):
     villa = models.ForeignKey(Villa, on_delete=models.CASCADE)
+    is_valid = models.BooleanField(default=True)
