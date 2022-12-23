@@ -36,8 +36,23 @@ class AbstractQuarter(models.Model):
 
 
 class Hotel(models.Model):
+    ONE_STAR = 1
+    TWO_STAR = 2
+    THREE_STAR = 3
+    FOUR_STAR = 4
+    FIVE_STAR = 5
+
+    HOTEL_STARS_CHOICES = (
+        (ONE_STAR, '1_star'),
+        (TWO_STAR, '2_star'),
+        (THREE_STAR, '3_star'),
+        (FOUR_STAR, '4_star'),
+        (FIVE_STAR, '5_star')
+    )
+
     title = models.CharField(max_length=100)
     description = models.TextField()
+    hotel_star = models.PositiveSmallIntegerField(choices=HOTEL_STARS_CHOICES, default=5)
     # available = models.IntegerField()
     # avatar = None
     is_valid = models.BooleanField(default=True)
@@ -45,17 +60,9 @@ class Hotel(models.Model):
     modified_time = models.DateTimeField(auto_now=True)
 
 
-class GeneralAvatar(models.Model):
+class HotelAvatar(models.Model):
     avatar = models.ImageField(upload_to='quarter/hotel/avatar')
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
-    is_valid = models.BooleanField(default=True)
-    created_time = models.DateTimeField(auto_now_add=True)
-    modified_time = models.DateTimeField(auto_now=True)
-
-
-class DetailAvatar(models.Model):
-    avatar = models.ImageField(upload_to='quarter/quarter/avatar')
-    quarter = models.ForeignKey(AbstractQuarter, on_delete=models.CASCADE)
     is_valid = models.BooleanField(default=True)
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
@@ -73,8 +80,23 @@ class Villa(AbstractQuarter):
     is_valid = models.BooleanField(default=True)
 
 
+class VillaAvatar(models.Model):
+    avatar = models.ImageField(upload_to='quarter/villa/avatar')
+    quarter = models.ForeignKey(Villa, on_delete=models.CASCADE)
+    is_valid = models.BooleanField(default=True)
+    created_time = models.DateTimeField(auto_now_add=True)
+    modified_time = models.DateTimeField(auto_now=True)
+
+
 class HotelRoom(AbstractQuarter):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
     # availableness = None
     is_valid = models.BooleanField(default=True)
-a
+
+
+class HotelRoomAvatar(models.Model):
+    avatar = models.ImageField(upload_to='quarter/hotelroom/avatar')
+    quarter = models.ForeignKey(HotelRoom, on_delete=models.CASCADE)
+    is_valid = models.BooleanField(default=True)
+    created_time = models.DateTimeField(auto_now_add=True)
+    modified_time = models.DateTimeField(auto_now=True)
