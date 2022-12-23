@@ -8,12 +8,17 @@ class AdminLocation(admin.ModelAdmin):
     search_fields = ('address', 'is_valid')
 
 
-class AdminGeneralAvatar(admin.ModelAdmin):
+class AdminHotelAvatar(admin.ModelAdmin):
     list_display = ('avatar', )
     search_fields = ('is_valid',)
 
 
-class AdminDetailAvatar(admin.ModelAdmin):
+class AdminHotelRoomAvatar(admin.ModelAdmin):
+    list_display = ('avatar',  'is_valid',)
+    search_fields = ('is_valid',)
+
+
+class AdminVillaAvatar(admin.ModelAdmin):
     list_display = ('avatar',  'is_valid',)
     search_fields = ('is_valid',)
 
@@ -34,8 +39,9 @@ class AdminHotelRoom(admin.ModelAdmin):
 
 
 admin.site.register(Location, AdminLocation)
-admin.site.register(GeneralAvatar, AdminGeneralAvatar)
-admin.site.register(DetailAvatar, AdminDetailAvatar)
+admin.site.register(HotelAvatar, AdminHotelAvatar)
+admin.site.register(HotelRoomAvatar, AdminHotelRoomAvatar)
+admin.site.register(VillaAvatar, AdminVillaAvatar)
 admin.site.register(Villa, AdminVilla)
 admin.site.register(Hotel, AdminHotel)
 admin.site.register(HotelRoom, AdminHotelRoom)
