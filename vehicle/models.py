@@ -1,3 +1,5 @@
+from typing import Tuple
+
 from django.db import models
 
 
@@ -41,9 +43,22 @@ class Airplane(AbstractVehicle):
         (FIRST_CLASS, "First_class")
     )
 
+    AIRBUS = 5
+    BOEING = 6
+    FOKKER = 7
+    MCDONNELL_DOUGLAS = 8
+
+    AIRPLANE_TYPE_CHIOCES = (
+        (AIRBUS, "Airbus"),
+        (BOEING, "Boeing "),
+        (FOKKER, "Fokker"),
+        (MCDONNELL_DOUGLAS, "McDonnell Douglas")
+    )
+
     gate = models.CharField(max_length=150)
     flight_type = models.PositiveSmallIntegerField(choices=FLIGHT_TYPE_CHOICES, default=1)
     is_valid = models.BooleanField(default=True)
+    airplane_type = models.PositiveSmallIntegerField(choices=AIRPLANE_TYPE_CHIOCES, default=5)
 
 
 # class AirplaneTicket(models.Model):
