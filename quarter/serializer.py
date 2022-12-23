@@ -8,21 +8,28 @@ class LocationSerializer(serializers.ModelSerializer):
         fields = ('address', 'map_link', 'is_valid',)
 
 
-class GeneralAvatarSerializer(serializers.ModelSerializer):
+class HotelAvatarSerializer(serializers.ModelSerializer):
     class Meta:
-        model = GeneralAvatar
+        model = HotelAvatar
         fields = ('avatar', 'is_valid',)
 
 
-class DetailAvatarSerializer(serializers.ModelSerializer):
+class HotelRoomAvatarSerializer(serializers.ModelSerializer):
     class Meta:
-        model = GeneralAvatar
+        model = HotelRoomAvatar
         fields = ('avatar', 'is_valid',)
+
+
+class VillaAvatarSerializer(serializers.ModelSerializer):
+    class Meta:
+        class Meta:
+            model = VillaAvatar
+            fields = ('avatar', 'is_valid',)
 
 
 class VillaSerializer(serializers.ModelSerializer):
     location = LocationSerializer()
-    avatar = DetailAvatarSerializer(many=True)
+    avatar = VillaAvatarSerializer(many=True)
 
     class Meta:
         model = Villa
@@ -31,7 +38,7 @@ class VillaSerializer(serializers.ModelSerializer):
 
 
 class HotelSerializer(serializers.ModelSerializer):
-    avatar = GeneralAvatarSerializer(many=True)
+    avatar = HotelAvatarSerializer(many=True)
 
     class Meta:
         model = Hotel
@@ -41,7 +48,7 @@ class HotelSerializer(serializers.ModelSerializer):
 class HotelRoomSerializer(serializers.ModelSerializer):
     hotel = HotelSerializer()
     location = LocationSerializer()
-    avatar = DetailAvatarSerializer(many=True)
+    avatar = HotelRoomAvatarSerializer(many=True)
 
     class Meta:
         model = HotelRoom
