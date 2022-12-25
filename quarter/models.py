@@ -24,7 +24,7 @@ class AbstractQuarter(models.Model):
     capacity = models.IntegerField()
     price = models.IntegerField()
     facility = models.PositiveSmallIntegerField(choices=FACILITY_CHOICES, default=FREE_WIFI)
-    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE, related_name='quarters')
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
 
@@ -62,7 +62,7 @@ class Hotel(models.Model):
 
 class HotelAvatar(models.Model):
     avatar = models.ImageField(upload_to='quarter/hotel/avatar')
-    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='hotel_avatars')
     is_valid = models.BooleanField(default=True)
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
@@ -82,7 +82,7 @@ class Villa(AbstractQuarter):
 
 class VillaAvatar(models.Model):
     avatar = models.ImageField(upload_to='quarter/villa/avatar')
-    quarter = models.ForeignKey(Villa, on_delete=models.CASCADE)
+    quarter = models.ForeignKey(Villa, on_delete=models.CASCADE, related_name='villa_avatars')
     is_valid = models.BooleanField(default=True)
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
@@ -96,7 +96,7 @@ class HotelRoom(AbstractQuarter):
 
 class HotelRoomAvatar(models.Model):
     avatar = models.ImageField(upload_to='quarter/hotelroom/avatar')
-    quarter = models.ForeignKey(HotelRoom, on_delete=models.CASCADE)
+    quarter = models.ForeignKey(HotelRoom, on_delete=models.CASCADE, related_name='room_avatars')
     is_valid = models.BooleanField(default=True)
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)

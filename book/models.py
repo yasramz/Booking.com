@@ -12,7 +12,7 @@ class AbstractVehicleReservation(models.Model):
         (RESERVED, 'Reserved')
     )
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='vehicle_reservations')
     reservation_time = models.DateTimeField()
     status = models.PositiveSmallIntegerField(choices=RESERVATION_CHOICES, default=RESERVED)
     created_time = models.DateTimeField(auto_now_add=True)
@@ -23,7 +23,7 @@ class AbstractVehicleReservation(models.Model):
 
 
 class AirplaneReservation(AbstractVehicleReservation):
-    airplane = models.ForeignKey(Airplane, on_delete=models.CASCADE)
+    airplane = models.ForeignKey(Airplane, on_delete=models.CASCADE, related_name='airplane_reservations')
     is_valid = models.BooleanField(default=True)
 
 
@@ -35,7 +35,7 @@ class AbstractQuarterReservation(models.Model):
         (RESERVED, 'Reserved')
     )
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='quarter_reservations')
     reservation_time = models.DateTimeField()
     status = models.PositiveSmallIntegerField(choices=RESERVATION_CHOICES, default=RESERVED)
     check_In = models.DateTimeField()
@@ -47,10 +47,11 @@ class AbstractQuarterReservation(models.Model):
 
 
 class HotelReservation(AbstractQuarterReservation):
-    hotel = models.ForeignKey(HotelRoom, on_delete=models.CASCADE)
+    hotel = models.ForeignKey(HotelRoom, on_delete=models.CASCADE, related_name='hotel_reservations')
     is_valid = models.BooleanField(default=True)
 
 
 class VillaReservation(AbstractQuarterReservation):
-    villa = models.ForeignKey(Villa, on_delete=models.CASCADE)
+    villa = models.ForeignKey(Villa, on_delete=models.CASCADE, related_name='villa_reservations')
     is_valid = models.BooleanField(default=True)
+
