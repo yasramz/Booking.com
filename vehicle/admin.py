@@ -3,8 +3,8 @@ from vehicle.models import *
 
 
 class AdminAirplane(admin.ModelAdmin):
-    list_display = ('id', 'gate', 'title', 'is_valid', )
-    search_fields = ('gate', 'is_valid', )
+    list_display = ('id', 'title', 'is_valid', )
+    search_fields = ('is_valid', )
 
 
-admin.site.register(Airplane, AdminAirplane)
+admin.site.register(Flight, AdminAirplane)

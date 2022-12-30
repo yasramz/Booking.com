@@ -30,7 +30,7 @@ class AbstractVehicle(models.Model):
         return self.title
 
 
-class Airplane(AbstractVehicle):
+class Flight(AbstractVehicle):
     ECONOMY_CLASS = 1
     PREMIUM_ECONOMY_CLASS = 2
     BUSINESS_CLASS = 3
@@ -55,7 +55,6 @@ class Airplane(AbstractVehicle):
         (MCDONNELL_DOUGLAS, "McDonnell Douglas")
     )
 
-    gate = models.CharField(max_length=150)
     flight_type = models.PositiveSmallIntegerField(choices=FLIGHT_TYPE_CHOICES, default=1)
     is_valid = models.BooleanField(default=True)
     airplane_type = models.PositiveSmallIntegerField(choices=AIRPLANE_TYPE_CHIOCES, default=5)
