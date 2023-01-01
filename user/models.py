@@ -10,8 +10,9 @@ class User(AbstractUser):
                                 validators=[RegexValidator(regex="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$",
                                                            message="Minimum eight characters, at least one letter and "
                                                                    "one number")])
-    USERNAME_FIELD = "phone_number"
-    REQUIRED_FIELDS = ["username"]
+    email = models.EmailField(unique=True)
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ["username", "phone_number"]
 
     def __str__(self):
         return self.username
@@ -30,6 +31,7 @@ class Profile(models.Model):
     gender = models.PositiveSmallIntegerField(choices=GENDER_CHOICES, default=MALE)
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='profile')
 
 
 class BankInfo(models.Model):
@@ -38,3 +40,5 @@ class BankInfo(models.Model):
     card_number = models.IntegerField()
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='bank_info')
+
