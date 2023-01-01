@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'quarter.apps.QuarterConfig',
     'user.apps.UserConfig',
     'vehicle.apps.VehicleConfig',
+    'book.apps.BookConfig',
 
     'rest_framework',
     'rest_framework_simplejwt',

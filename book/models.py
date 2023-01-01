@@ -1,6 +1,6 @@
 from django.db import models
 from user.models import User
-from vehicle.models import Airplane
+from vehicle.models import Flight
 from quarter.models import Villa, HotelRoom
 
 
@@ -19,11 +19,11 @@ class AbstractVehicleReservation(models.Model):
     modified_time = models.DateTimeField(auto_now=True)
 
     class Meta:
-        abstract=True
+        abstract = True
 
 
-class AirplaneReservation(AbstractVehicleReservation):
-    airplane = models.ForeignKey(Airplane, on_delete=models.CASCADE, related_name='airplane_reservations')
+class FlightReservation(AbstractVehicleReservation):
+    airplane = models.ForeignKey(Flight, on_delete=models.CASCADE, related_name='airplane_reservations')
     is_valid = models.BooleanField(default=True)
 
 
