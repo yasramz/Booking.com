@@ -1,6 +1,6 @@
 from abc import ABC
 
-from rest_framework import serializers
+from rest_framework import serializers, exceptions
 from user.models import *
 
 
@@ -23,6 +23,22 @@ class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
         fields = ('national_code', 'emergency_number', 'date_of_birth', 'gender', 'user', 'bank_info', )
+
+    def create(self, validated_data):
+        user = validated_data.pop('user', None)
+        bank_info = validated_data.pop('bank_info', None)
+
+        try:
+            user = User.objects.create(**user)
+            bank_info = BankInfo.objects.create(**bank_info)
+
+        except(ValueError, TypeError):
+            raise exceptions.ValidationError('data in not valid')
+
+        profile = Profile.objects.create(user=user, bank_info=bank_info, **validated_data)
+
+        return profile
+
 
 
 class StepOneLoginSerializer(serializers.Serializer):
