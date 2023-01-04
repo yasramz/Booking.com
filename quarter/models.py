@@ -24,7 +24,6 @@ class AbstractQuarter(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     capacity = models.IntegerField()
-    price = models.IntegerField()
     facility = models.PositiveSmallIntegerField(choices=FACILITY_CHOICES, default=FREE_WIFI)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, related_name='quarters')
     created_time = models.DateTimeField(auto_now_add=True)
@@ -55,8 +54,6 @@ class Hotel(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     hotel_star = models.PositiveSmallIntegerField(choices=HOTEL_STARS_CHOICES, default=5)
-    # available = models.IntegerField()
-    # avatar = None
     is_valid = models.BooleanField(default=True)
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
@@ -80,6 +77,7 @@ class Villa(AbstractQuarter):
 
     Available = models.PositiveSmallIntegerField(choices=AVAILABLENESS_CHOICES, default=AVAILABLE)
     is_valid = models.BooleanField(default=True)
+    price = models.ForeignKey('VillaPrice', on_delete=models.CASCADE, related_name='villa_price')
 
 
 class VillaAvatar(models.Model):
@@ -94,11 +92,26 @@ class HotelRoom(AbstractQuarter):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
     # availableness = None
     is_valid = models.BooleanField(default=True)
+    price = models.ForeignKey('HotelRoomPrice', on_delete=models.CASCADE, related_name='hotel_room_price')
 
 
 class HotelRoomAvatar(models.Model):
     avatar = models.ImageField(upload_to='quarter/hotelroom/avatar')
     quarter = models.ForeignKey(HotelRoom, on_delete=models.CASCADE, related_name='room_avatars')
+    is_valid = models.BooleanField(default=True)
+    created_time = models.DateTimeField(auto_now_add=True)
+    modified_time = models.DateTimeField(auto_now=True)
+
+
+class HotelRoomPrice(models.Model):
+    price = models.IntegerField()
+    is_valid = models.BooleanField(default=True)
+    created_time = models.DateTimeField(auto_now_add=True)
+    modified_time = models.DateTimeField(auto_now=True)
+
+
+class VillaPrice(models.Model):
+    price = models.IntegerField()
     is_valid = models.BooleanField(default=True)
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)

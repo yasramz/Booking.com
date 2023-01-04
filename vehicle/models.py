@@ -14,7 +14,6 @@ class AbstractVehicle(models.Model):
     title = models.CharField(max_length=100)
     origin = models.CharField(max_length=60)
     destination = models.CharField(max_length=60)
-    price = models.IntegerField()
     company = models.CharField(max_length=100)
     arrive_time = models.DateTimeField()
     depart_time = models.DateTimeField()
@@ -58,8 +57,11 @@ class Flight(AbstractVehicle):
     flight_type = models.PositiveSmallIntegerField(choices=FLIGHT_TYPE_CHOICES, default=1)
     is_valid = models.BooleanField(default=True)
     airplane_type = models.PositiveSmallIntegerField(choices=AIRPLANE_TYPE_CHIOCES, default=5)
+    price = models.ForeignKey("FlightPrice", on_delete=models.CASCADE, related_name='flight_price')
 
 
-# class AirplaneTicket(models.Model):
-#     seat = models.CharField(max_length=20)
-#     airline = models.ForeignKey(Airplane, on_delete=models.CASCADE, related_name='airplane_tickets')
+class FlightPrice(models.Model):
+    price = models.IntegerField()
+    is_valid = models.BooleanField(default=True)
+    created_time = models.DateTimeField(auto_now_add=True)
+    modified_time = models.DateTimeField(auto_now=True)
