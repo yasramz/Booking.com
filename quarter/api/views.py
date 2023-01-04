@@ -1,6 +1,7 @@
 from quarter.api.serializer import VillaSerializer, HotelSerializer, HotelRoomSerializer
 from rest_framework import mixins, viewsets
 from quarter.models import Villa, Hotel, HotelRoom
+from filtering.filter import VillaFilterSet, HotelRoomFilterSet
 
 
 class VillaViewSet(mixins.RetrieveModelMixin,
@@ -9,6 +10,7 @@ class VillaViewSet(mixins.RetrieveModelMixin,
 
     queryset = Villa.objects.all()
     serializer_class = VillaSerializer
+    filterset_class = VillaFilterSet
 
 
 class HotelViewSet(mixins.RetrieveModelMixin,
@@ -25,3 +27,4 @@ class HotelRoomViewSet(mixins.RetrieveModelMixin,
 
     queryset = HotelRoom.objects.all()
     serializer_class = HotelRoomSerializer
+    filterset_class = HotelRoomFilterSet

@@ -4,6 +4,8 @@ from django.db import models
 class Location(models.Model):
     address = models.TextField()
     map_link = models.TextField()
+    country = models.TextField()
+    city = models.TextField()
     is_valid = models.BooleanField(default=True)
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
