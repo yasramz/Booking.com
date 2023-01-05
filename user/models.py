@@ -31,7 +31,7 @@ class Profile(models.Model):
     gender = models.PositiveSmallIntegerField(choices=GENDER_CHOICES, default=MALE)
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='profile')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='profile', primary_key=True)
 
 
 class BankInfo(models.Model):

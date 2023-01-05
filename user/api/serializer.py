@@ -18,11 +18,11 @@ class BankInfoSerializer(serializers.ModelSerializer):
 
 class ProfileSerializer(serializers.ModelSerializer):
     user = UserSerializer()
-    bank_info = BankInfoSerializer()
+    # bank_info = BankInfoSerializer()
 
     class Meta:
         model = Profile
-        fields = ('national_code', 'emergency_number', 'date_of_birth', 'gender', 'user', 'bank_info', )
+        fields = ('national_code', 'emergency_number', 'date_of_birth', 'gender', 'user',) #'bank_info',
 
     def create(self, validated_data):
         user = validated_data.pop('user', None)
@@ -42,14 +42,10 @@ class ProfileSerializer(serializers.ModelSerializer):
 
 
 class StepOneLoginSerializer(serializers.Serializer):
-    phone = serializers.IntegerField(required=True,
-                                     validators=[RegexValidator(r'^989[0-3,9]\d{8}$', 'Enter a valid phone number.',
-                                                                'invalid')])
+    email = serializers.EmailField()
 
 
 class StepTwoLoginSerializer(serializers.Serializer):
-    phone = serializers.IntegerField(required=True,
-                                     validators=[RegexValidator(r'^989[0-3,9]\d{8}$', 'Enter a valid phone number.',
-                                                                'invalid')])
+    email = serializers.EmailField()
     code = serializers.CharField(max_length=6)
 

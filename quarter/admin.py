@@ -45,4 +45,6 @@ admin.site.register(VillaAvatar, AdminVillaAvatar)
 admin.site.register(Villa, AdminVilla)
 admin.site.register(Hotel, AdminHotel)
 admin.site.register(HotelRoom, AdminHotelRoom)
+admin.site.register(HotelRoomPrice)
+admin.site.register(VillaPrice)
 

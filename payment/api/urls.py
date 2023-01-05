@@ -4,8 +4,8 @@ from payment.api.views import HotelRoomPaymentHistoryViewSet, VillaPaymentHistor
 
 router = DefaultRouter()
 
-router.register(r'hotel_room_payment', HotelRoomPaymentHistoryViewSet, basename='hotel_room_payment')
-router.register(r'villa_payment', VillaPaymentHistoryViewSet, basename='villa_payment')
+router.register(r'hotel-room-payment', HotelRoomPaymentHistoryViewSet, basename='hotel_room_payment')
+router.register(r'villa-payment', VillaPaymentHistoryViewSet, basename='villa_payment')
 
 
 urlpatterns = [

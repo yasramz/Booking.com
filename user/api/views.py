@@ -14,18 +14,17 @@ from utils.utils import get_tokens_for_user, generate_otp
 class ProfileViewSet(mixins.RetrieveModelMixin,
                      viewsets.GenericViewSet):
     queryset = Profile.objects.all().prefetch_related('user', 'bank_info')
-    serializer_class = ProfileSerializer()
+    serializer_class = ProfileSerializer
     authentication_classes = (JWTAuthentication,)
     permission_classes = [IsAuthenticated]
 
 
-class UserViewSet(
-    mixins.CreateModelMixin,
-    mixins.ListModelMixin,
-    mixins.UpdateModelMixin,
-    mixins.DestroyModelMixin,
-    mixins.RetrieveModelMixin,
-    viewsets.GenericViewSet
+class UserViewSet(mixins.CreateModelMixin,
+                  mixins.ListModelMixin,
+                  mixins.UpdateModelMixin,
+                  mixins.DestroyModelMixin,
+                  mixins.RetrieveModelMixin,
+                  viewsets.GenericViewSet
 ):
     authentication_classes = [JWTAuthentication]
     queryset = User.objects.all()
@@ -44,11 +43,11 @@ class LoginStepOneAPIView(GenericAPIView):
 
     def post(self, request):
         serializer = self.get_serializer(data=request.data)
-        email = request.data['email']
-        code = generate_otp()
-        cache.set(str(email), code, 120)
-
         if serializer.is_valid(raise_exception=True):
+            email = request.data['email']
+            code = generate_otp()
+            cache.set(str(email), code, 120)
+
             return Response({"code": code})
 
 

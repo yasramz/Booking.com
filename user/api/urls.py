@@ -3,10 +3,11 @@ from django.urls import path
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
-router.register(r'', UserViewSet, basename='')
+router.register(r'profile', ProfileViewSet, basename='profile')
+router.register(r'user', UserViewSet, basename='user')
 
 urlpatterns = [
-    path('login/step_one/', LoginStepOneAPIView.as_view(), name="step_one"),
-    path('login/step_two/', LoginStepTwoAPIView.as_view(), name="step_two")
+    path('login/step-one/', LoginStepOneAPIView.as_view(), name="step_one"),
+    path('login/step-two/', LoginStepTwoAPIView.as_view(), name="step_two")
 ]
 urlpatterns += router.urls

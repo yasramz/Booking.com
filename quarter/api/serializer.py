@@ -22,27 +22,26 @@ class HotelRoomAvatarSerializer(serializers.ModelSerializer):
 
 class VillaAvatarSerializer(serializers.ModelSerializer):
     class Meta:
-        class Meta:
-            model = VillaAvatar
-            fields = ('avatar', 'is_valid',)
+        model = VillaAvatar
+        fields = ('avatar', 'is_valid',)
 
 
 class VillaSerializer(serializers.ModelSerializer):
     location = LocationSerializer()
-    avatar = VillaAvatarSerializer(many=True)
+    villa_avatars = VillaAvatarSerializer(many=True)
 
     class Meta:
         model = Villa
-        fields = ('title', 'description', 'capacity', 'price', 'facility', 'location', 'avatar',
+        fields = ('id', 'title', 'description', 'capacity', 'price', 'facility', 'location', 'villa_avatars',
                   'is_valid',)
 
     def create(self, validated_data):
         location = validated_data.pop('location', None)
-        avatar = validated_data.pop('avatar', None)
+        villa_avatars = validated_data.pop('villa_avatars', None)
 
         try:
             location = Location.objects.create(**location)
-            VillaAvatar.objects.create(**avatar)
+            VillaAvatar.objects.create(**villa_avatars)
 
         except(ValueError, TypeError):
             raise exceptions.ValidationError('data in not valid')

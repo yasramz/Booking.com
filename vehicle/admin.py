@@ -7,4 +7,5 @@ class AdminAirplane(admin.ModelAdmin):
     search_fields = ('is_valid', )
 
 
-admin.site.register(Flight, AdminAirplane)
+admin.site.register(Flight)
+admin.site.register(FlightPrice)
