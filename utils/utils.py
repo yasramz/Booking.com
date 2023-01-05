@@ -1,7 +1,6 @@
 import math, random
 from rest_framework_simplejwt.tokens import RefreshToken
 from math import ceil
-from quarter.models import AbstractPrice
 
 
 def get_tokens_for_user(user):
@@ -29,3 +28,4 @@ def change_price_for_all(num=None, model=None):
         new_price = ceil(old_price + (old_price * multiplier))
         item.price = new_price
         item.save(update_fields=['price'])
+

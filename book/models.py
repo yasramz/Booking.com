@@ -30,9 +30,11 @@ class FlightReservation(AbstractVehicleReservation):
 class AbstractQuarterReservation(models.Model):
     CANCELED = 1
     RESERVED = 2
+    APPROVED = 3
     RESERVATION_CHOICES = (
         (CANCELED, 'Canceled'),
-        (RESERVED, 'Reserved')
+        (RESERVED, 'Reserved'),
+        (APPROVED, 'approved')
     )
 
     reservation_time = models.DateTimeField()
@@ -55,4 +57,3 @@ class VillaReservation(AbstractQuarterReservation):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='villa_reservations')
     villa = models.ForeignKey(Villa, on_delete=models.CASCADE, related_name='villa_reservations')
     is_valid = models.BooleanField(default=True)
-
