@@ -1,0 +1,2000 @@
+{
+	"info": {
+		"_postman_id": "bc502e67-7d14-4307-9390-414f86cffc89",
+		"name": "Booking.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25081071"
+	},
+	"item": [
+		{
+			"name": "Quarter",
+			"item": [
+				{
+					"name": "villa(list)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/quarter/api/villa/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"quarter",
+								"api",
+								"villa",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "villa(successful list)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/quarter/api/villa/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"quarter",
+										"api",
+										"villa",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 06 Jan 2023 09:27:26 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1251"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 2,\n        \"title\": \"ویلا سه خوابه ساحلی شاهد رامسر\",\n        \"description\": \"ویلا 4 خوابه هزار متری با دید به ساحل اختصاصی که از امکانات مطلوب رفاهی برخوردار است.حیاط درختکاری شده و دارای آلاچیق است.\",\n        \"capacity\": 8,\n        \"price\": 2,\n        \"facility\": 2,\n        \"location\": {\n            \"address\": \"رامسر\",\n            \"map_link\": \"https://www.karnaval.ir/attraction/markuh-castle-ramsar\",\n            \"is_valid\": true\n        },\n        \"villa_avatars\": [\n            {\n                \"avatar\": \"http://127.0.0.1:8000/media/quarter/villa/avatar/villa2.jpeg\",\n                \"is_valid\": true\n            }\n        ],\n        \"is_valid\": true\n    },\n    {\n        \"id\": 3,\n        \"title\": \"جاره ویلا دوخوابه استخردار آبگرم حلاجیان رامسر\",\n        \"description\": \"دارای استخر و سونا - دوخواب دوتراس - ویو سمت\\u200cجنگل\\u200cوکوه - حیاط\\u200cدار - امکانات\\u200cرفاهی\\u200cکامل- استخر اقامتگاه به صورت اختصاصی در اختیار مسافر است\",\n        \"capacity\": 6,\n        \"price\": 2,\n        \"facility\": 2,\n        \"location\": {\n            \"address\": \"رامسر\",\n            \"map_link\": \"https://www.karnaval.ir/attraction/markuh-castle-ramsar\",\n            \"is_valid\": true\n        },\n        \"villa_avatars\": [\n            {\n                \"avatar\": \"http://127.0.0.1:8000/media/quarter/villa/avatar/villa3.jpeg\",\n                \"is_valid\": true\n            }\n        ],\n        \"is_valid\": true\n    }\n]"
+						},
+						{
+							"name": "villa(successful retrive)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/quarter/api/villa/2/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"quarter",
+										"api",
+										"villa",
+										"2",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 06 Jan 2023 09:28:33 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "591"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"title\": \"ویلا سه خوابه ساحلی شاهد رامسر\",\n    \"description\": \"ویلا 4 خوابه هزار متری با دید به ساحل اختصاصی که از امکانات مطلوب رفاهی برخوردار است.حیاط درختکاری شده و دارای آلاچیق است.\",\n    \"capacity\": 8,\n    \"price\": 2,\n    \"facility\": 2,\n    \"location\": {\n        \"address\": \"رامسر\",\n        \"map_link\": \"https://www.karnaval.ir/attraction/markuh-castle-ramsar\",\n        \"is_valid\": true\n    },\n    \"villa_avatars\": [\n        {\n            \"avatar\": \"http://127.0.0.1:8000/media/quarter/villa/avatar/villa2.jpeg\",\n            \"is_valid\": true\n        }\n    ],\n    \"is_valid\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "hotel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/quarter/api/hotel/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"quarter",
+								"api",
+								"hotel",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "hotel(successful list)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/quarter/api/hotel/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"quarter",
+										"api",
+										"hotel",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 06 Jan 2023 09:29:21 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1656"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"title\": \"هتل داریوش\",\n        \"description\": \"هتل بزرگ پنج ستاره داریوش با الهام از طرح شکوهمند تخت جمشید در زمینی با وسعت دوازده هکتار در شمال شرق جزیره زیبای کیش نزدیک به ساحل شرقی در سال 1382 توسط بهترین معماران ایرانی ساخته شده است. این هتل موزه دارای 184 اتاق، سوییت و کاباناهای مجلل با چشم انداز دریا و باغ است. ویژگی یکتای هتل بزرگ داریوش به عنوان یکی از بزرگترین و زیباترین هتلهای دنیا این است که تمدن و فرهنگ یک ملت بزرگ و کهن را به رخ جهانیان می کشاند و یگانه نماد تاریخی کشور است که با معماری بی همتای جهانی خود شکوه سلطنت گسترده فرهنگ و تمدن ایرانیان عزیز را هویدا نموده و دلیل قاطعی بر بام خلیج همیشه فارس است\",\n        \"is_valid\": true,\n        \"hotel_avatars\": [\n            {\n                \"avatar\": \"http://127.0.0.1:8000/media/quarter/hotel/avatar/hotel_wdZogn9.jpg\",\n                \"is_valid\": true\n            }\n        ]\n    },\n    {\n        \"title\": \"هتل مجلل درویشی مشهد\",\n        \"description\": \"دارای استخر و سونا - دوخواب دوتراس - ویو سمت\\u200cجنگل\\u200cوکوه - حیاط\\u200cدار - امکانات\\u200cرفاهی\\u200cکامل- استخر اقامتگاه به صورت اختصاصی در اختیار مسافر است\",\n        \"is_valid\": true,\n        \"hotel_avatars\": [\n            {\n                \"avatar\": \"http://127.0.0.1:8000/media/quarter/hotel/avatar/hotel_mashhad.jpg\",\n                \"is_valid\": true\n            }\n        ]\n    }\n]"
+						},
+						{
+							"name": "hotel(successful retrive)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/quarter/api/hotel/2/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"quarter",
+										"api",
+										"hotel",
+										"2",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 06 Jan 2023 09:30:22 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "450"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"هتل مجلل درویشی مشهد\",\n    \"description\": \"دارای استخر و سونا - دوخواب دوتراس - ویو سمت\\u200cجنگل\\u200cوکوه - حیاط\\u200cدار - امکانات\\u200cرفاهی\\u200cکامل- استخر اقامتگاه به صورت اختصاصی در اختیار مسافر است\",\n    \"is_valid\": true,\n    \"hotel_avatars\": [\n        {\n            \"avatar\": \"http://127.0.0.1:8000/media/quarter/hotel/avatar/hotel_mashhad.jpg\",\n            \"is_valid\": true\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "hotelroom",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/quarter/api/hotelroom/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"quarter",
+								"api",
+								"hotelroom",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "hotelroom(successful list)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/quarter/api/hotelroom/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"quarter",
+										"api",
+										"hotelroom",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 06 Jan 2023 09:31:09 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2558"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"title\": \"Garden View Luxury Double\",\n        \"description\": \"Garden View Luxury Double with a king size bed and beautiful view .\",\n        \"capacity\": 2,\n        \"price\": 2,\n        \"facility\": 2,\n        \"location\": {\n            \"address\": \"جزیره کیش\",\n            \"map_link\": \"https://www.google.com/maps/place/Dariush+grand+Hotel/@26.5356085,54.0270437,18z/data=!4m5!3m4!1s0x3e50aa4d3b680af9:0x5a30586d94d7563d!8m2!3d26.535039!4d54.027696\",\n            \"is_valid\": true\n        },\n        \"room_avatars\": [\n            {\n                \"avatar\": \"http://127.0.0.1:8000/media/quarter/hotelroom/avatar/hotelroom.jpg\",\n                \"is_valid\": true\n            }\n        ],\n        \"hotel\": {\n            \"title\": \"هتل داریوش\",\n            \"description\": \"هتل بزرگ پنج ستاره داریوش با الهام از طرح شکوهمند تخت جمشید در زمینی با وسعت دوازده هکتار در شمال شرق جزیره زیبای کیش نزدیک به ساحل شرقی در سال 1382 توسط بهترین معماران ایرانی ساخته شده است. این هتل موزه دارای 184 اتاق، سوییت و کاباناهای مجلل با چشم انداز دریا و باغ است. ویژگی یکتای هتل بزرگ داریوش به عنوان یکی از بزرگترین و زیباترین هتلهای دنیا این است که تمدن و فرهنگ یک ملت بزرگ و کهن را به رخ جهانیان می کشاند و یگانه نماد تاریخی کشور است که با معماری بی همتای جهانی خود شکوه سلطنت گسترده فرهنگ و تمدن ایرانیان عزیز را هویدا نموده و دلیل قاطعی بر بام خلیج همیشه فارس است\",\n            \"is_valid\": true,\n            \"hotel_avatars\": [\n                {\n                    \"avatar\": \"http://127.0.0.1:8000/media/quarter/hotel/avatar/hotel_wdZogn9.jpg\",\n                    \"is_valid\": true\n                }\n            ]\n        },\n        \"is_valid\": true\n    },\n    {\n        \"title\": \"اتاق دابل استاندارد\",\n        \"description\": \"یلدسقبادسقبسقفق\",\n        \"capacity\": 2,\n        \"price\": 2,\n        \"facility\": 2,\n        \"location\": {\n            \"address\": \"مشهد\",\n            \"map_link\": \"ظیفاقبتفق\",\n            \"is_valid\": true\n        },\n        \"room_avatars\": [\n            {\n                \"avatar\": \"http://127.0.0.1:8000/media/quarter/hotelroom/avatar/%DB%B2%D9%86%D9%81%D8%B1%D9%87.jpg\",\n                \"is_valid\": true\n            }\n        ],\n        \"hotel\": {\n            \"title\": \"هتل مجلل درویشی مشهد\",\n            \"description\": \"دارای استخر و سونا - دوخواب دوتراس - ویو سمت\\u200cجنگل\\u200cوکوه - حیاط\\u200cدار - امکانات\\u200cرفاهی\\u200cکامل- استخر اقامتگاه به صورت اختصاصی در اختیار مسافر است\",\n            \"is_valid\": true,\n            \"hotel_avatars\": [\n                {\n                    \"avatar\": \"http://127.0.0.1:8000/media/quarter/hotel/avatar/hotel_mashhad.jpg\",\n                    \"is_valid\": true\n                }\n            ]\n        },\n        \"is_valid\": true\n    }\n]"
+						},
+						{
+							"name": "hotelroom(successful retrive)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/quarter/api/hotelroom/4/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"quarter",
+										"api",
+										"hotelroom",
+										"4",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 06 Jan 2023 09:31:48 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "822"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"اتاق دابل استاندارد\",\n    \"description\": \"یلدسقبادسقبسقفق\",\n    \"capacity\": 2,\n    \"price\": 2,\n    \"facility\": 2,\n    \"location\": {\n        \"address\": \"مشهد\",\n        \"map_link\": \"ظیفاقبتفق\",\n        \"is_valid\": true\n    },\n    \"room_avatars\": [\n        {\n            \"avatar\": \"http://127.0.0.1:8000/media/quarter/hotelroom/avatar/%DB%B2%D9%86%D9%81%D8%B1%D9%87.jpg\",\n            \"is_valid\": true\n        }\n    ],\n    \"hotel\": {\n        \"title\": \"هتل مجلل درویشی مشهد\",\n        \"description\": \"دارای استخر و سونا - دوخواب دوتراس - ویو سمت\\u200cجنگل\\u200cوکوه - حیاط\\u200cدار - امکانات\\u200cرفاهی\\u200cکامل- استخر اقامتگاه به صورت اختصاصی در اختیار مسافر است\",\n        \"is_valid\": true,\n        \"hotel_avatars\": [\n            {\n                \"avatar\": \"http://127.0.0.1:8000/media/quarter/hotel/avatar/hotel_mashhad.jpg\",\n                \"is_valid\": true\n            }\n        ]\n    },\n    \"is_valid\": true\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Vehicle",
+			"item": [
+				{
+					"name": "flight",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/vehicle/api/flight/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"vehicle",
+								"api",
+								"flight",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "flight(successful list)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/vehicle/api/flight/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"vehicle",
+										"api",
+										"flight",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 06 Jan 2023 09:32:38 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "566"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"title\": \"هواپیمایی ماهان\",\n        \"origin\": \"تهران\",\n        \"destination\": \"اهواز\",\n        \"price\": 1,\n        \"company\": \"ماهان\",\n        \"arrive_time\": \"2023-01-05T12:00:00+03:30\",\n        \"depart_time\": \"2023-01-05T16:12:55+03:30\",\n        \"category\": 51,\n        \"capacity\": 200,\n        \"flight_type\": 1,\n        \"airplane_type\": 5,\n        \"is_valid\": true\n    },\n    {\n        \"title\": \"هواپیمایی آسمان\",\n        \"origin\": \"tehran\",\n        \"destination\": \"ankara\",\n        \"price\": 1,\n        \"company\": \"آسمان\",\n        \"arrive_time\": \"2023-01-05T06:00:00+03:30\",\n        \"depart_time\": \"2023-01-05T00:00:00+03:30\",\n        \"category\": 50,\n        \"capacity\": 41,\n        \"flight_type\": 2,\n        \"airplane_type\": 5,\n        \"is_valid\": true\n    }\n]"
+						},
+						{
+							"name": "flight(successful retrive)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/vehicle/api/flight/2/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"vehicle",
+										"api",
+										"flight",
+										"2",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 06 Jan 2023 09:33:30 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "277"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"هواپیمایی آسمان\",\n    \"origin\": \"tehran\",\n    \"destination\": \"ankara\",\n    \"price\": 1,\n    \"company\": \"آسمان\",\n    \"arrive_time\": \"2023-01-05T06:00:00+03:30\",\n    \"depart_time\": \"2023-01-05T00:00:00+03:30\",\n    \"category\": 50,\n    \"capacity\": 41,\n    \"flight_type\": 2,\n    \"airplane_type\": 5,\n    \"is_valid\": true\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "login(step-one)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "yasramezani@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/user/api/login/step-one/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"api",
+								"login",
+								"step-one",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login(step-one)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "yasramezani@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/user/api/login/step-one/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"user",
+										"api",
+										"login",
+										"step-one",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 06 Jan 2023 09:35:21 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "15"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"5021\"\n}"
+						}
+					]
+				},
+				{
+					"name": "login(step-two)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "yasramezani@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "5021",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/user/api/login/step-two/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"api",
+								"login",
+								"step-two",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login(step-two)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "yasramezani@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "code",
+											"value": "5021",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/user/api/login/step-two/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"user",
+										"api",
+										"login",
+										"step-two",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 06 Jan 2023 09:36:52 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "483"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY3MzA4NDIxMiwiaWF0IjoxNjcyOTk3ODEyLCJqdGkiOiJjZGIzMWQwNTliOGI0ZmFmYTdlODk3ZDYwNmI1YmYzOCIsInVzZXJfaWQiOjF9.QHES99OWj4QiusSsbD6KQOde1bj0f0gcGRajJy2xuKM\",\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczMDAwMjEyLCJpYXQiOjE2NzI5OTc4MTIsImp0aSI6IjdhMzZjOWExMTI5MjQ2MWU5NWUyODZjYTk4YjIzYjJlIiwidXNlcl9pZCI6MX0.POYYKxdrEBtStrmHZPTag4D-pTyTsLIcIoCouECn2Bo\"\n}"
+						}
+					]
+				},
+				{
+					"name": "profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczMDAwMjEyLCJpYXQiOjE2NzI5OTc4MTIsImp0aSI6IjdhMzZjOWExMTI5MjQ2MWU5NWUyODZjYTk4YjIzYjJlIiwidXNlcl9pZCI6MX0.POYYKxdrEBtStrmHZPTag4D-pTyTsLIcIoCouECn2Bo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/user/api/profile/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"api",
+								"profile",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "profile(successful retrive)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczMDAwMjEyLCJpYXQiOjE2NzI5OTc4MTIsImp0aSI6IjdhMzZjOWExMTI5MjQ2MWU5NWUyODZjYTk4YjIzYjJlIiwidXNlcl9pZCI6MX0.POYYKxdrEBtStrmHZPTag4D-pTyTsLIcIoCouECn2Bo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/user/api/profile/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"user",
+										"api",
+										"profile",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 06 Jan 2023 09:39:49 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "341"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"national_code\": \"0025391569\",\n    \"emergency_number\": 33765324,\n    \"date_of_birth\": \"2002-01-04T16:08:15+03:30\",\n    \"gender\": 2,\n    \"user\": {\n        \"email\": \"yasramezani@gmail.com\",\n        \"first_name\": \"\",\n        \"last_name\": \"\",\n        \"phone_number\": \"09913985100\",\n        \"password\": \"pbkdf2_sha256$390000$k41Ex7bsxkt8Sud9T3bmUi$0uV1cXrpdRubT9dCjIurx51dDZ+OYXrM1t80JunmElc=\",\n        \"USERNAME_FIELD\": \"email\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczMDAwMjEyLCJpYXQiOjE2NzI5OTc4MTIsImp0aSI6IjdhMzZjOWExMTI5MjQ2MWU5NWUyODZjYTk4YjIzYjJlIiwidXNlcl9pZCI6MX0.POYYKxdrEBtStrmHZPTag4D-pTyTsLIcIoCouECn2Bo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/user/api/user/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"api",
+								"user",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "user(successful list)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczMDAwMjEyLCJpYXQiOjE2NzI5OTc4MTIsImp0aSI6IjdhMzZjOWExMTI5MjQ2MWU5NWUyODZjYTk4YjIzYjJlIiwidXNlcl9pZCI6MX0.POYYKxdrEBtStrmHZPTag4D-pTyTsLIcIoCouECn2Bo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/user/api/user/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"user",
+										"api",
+										"user",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 06 Jan 2023 09:47:24 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "440"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"email\": \"yasramezani@gmail.com\",\n        \"first_name\": \"\",\n        \"last_name\": \"\",\n        \"phone_number\": \"09913985100\",\n        \"password\": \"pbkdf2_sha256$390000$k41Ex7bsxkt8Sud9T3bmUi$0uV1cXrpdRubT9dCjIurx51dDZ+OYXrM1t80JunmElc=\",\n        \"USERNAME_FIELD\": \"email\"\n    },\n    {\n        \"email\": \"pashazad@gmail.com\",\n        \"first_name\": \"\",\n        \"last_name\": \"\",\n        \"phone_number\": \"09101100226\",\n        \"password\": \"pbkdf2_sha256$390000$QXXIFf9NHsap4Ml87CLeyL$NOIJCJhkUNl33ll07BjQ2LHGLUrLtf2S0CxKgr2Ya+A=\",\n        \"USERNAME_FIELD\": \"email\"\n    }\n]"
+						},
+						{
+							"name": "user(checking password)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczMDAwMjEyLCJpYXQiOjE2NzI5OTc4MTIsImp0aSI6IjdhMzZjOWExMTI5MjQ2MWU5NWUyODZjYTk4YjIzYjJlIiwidXNlcl9pZCI6MX0.POYYKxdrEBtStrmHZPTag4D-pTyTsLIcIoCouECn2Bo",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "aali.azadeh@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "meaowwwww",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/user/api/user/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"user",
+										"api",
+										"user",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 06 Jan 2023 09:49:28 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "126"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"email\": [\n        \"user with this email already exists.\"\n    ],\n    \"password\": [\n        \"Minimum eight characters, at least one letter and one number\"\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Reservation",
+			"item": [
+				{
+					"name": "flight reservation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczMDAwMjEyLCJpYXQiOjE2NzI5OTc4MTIsImp0aSI6IjdhMzZjOWExMTI5MjQ2MWU5NWUyODZjYTk4YjIzYjJlIiwidXNlcl9pZCI6MX0.POYYKxdrEBtStrmHZPTag4D-pTyTsLIcIoCouECn2Bo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "airplane",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/book/api/flightreservation/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"book",
+								"api",
+								"flightreservation",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "flight reservation (successful create)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczMDAwMjEyLCJpYXQiOjE2NzI5OTc4MTIsImp0aSI6IjdhMzZjOWExMTI5MjQ2MWU5NWUyODZjYTk4YjIzYjJlIiwidXNlcl9pZCI6MX0.POYYKxdrEBtStrmHZPTag4D-pTyTsLIcIoCouECn2Bo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "airplane",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/book/api/flightreservation/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"book",
+										"api",
+										"flightreservation",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 06 Jan 2023 10:11:26 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "23"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": 1,\n    \"airplane\": 1\n}"
+						},
+						{
+							"name": "flight reservation (successful list)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczMDAwMjEyLCJpYXQiOjE2NzI5OTc4MTIsImp0aSI6IjdhMzZjOWExMTI5MjQ2MWU5NWUyODZjYTk4YjIzYjJlIiwidXNlcl9pZCI6MX0.POYYKxdrEBtStrmHZPTag4D-pTyTsLIcIoCouECn2Bo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "airplane",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/book/api/flightreservation/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"book",
+										"api",
+										"flightreservation",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 06 Jan 2023 10:13:03 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"user\": 1,\n        \"airplane\": 1\n    },\n    {\n        \"user\": 1,\n        \"airplane\": 1\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "hotelroom reservation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "check_in",
+									"value": "2021-10-1 12:30",
+									"type": "text"
+								},
+								{
+									"key": "check_out",
+									"value": "2021-10-9 12:30",
+									"type": "text"
+								},
+								{
+									"key": "hotel_room",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/book/api/hotelroomreservation/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"book",
+								"api",
+								"hotelroomreservation",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "hotelroom reservation success create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "check_in",
+											"value": "2021-10-1 12:30",
+											"type": "text"
+										},
+										{
+											"key": "check_out",
+											"value": "2021-10-9 12:30",
+											"type": "text"
+										},
+										{
+											"key": "hotel_room",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/book/api/hotelroomreservation/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"book",
+										"api",
+										"hotelroomreservation",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 06 Jan 2023 10:21:51 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "104"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": 1,\n    \"check_in\": \"2021-10-01T12:30:00+03:30\",\n    \"check_out\": \"2021-10-09T12:30:00+03:30\",\n    \"hotel_room\": 1\n}"
+						},
+						{
+							"name": "flight reservation (successful list)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczMDA3OTkzLCJpYXQiOjE2NzMwMDA3OTMsImp0aSI6IjlkZDdhMmYwODA3NDRhYjE4OTk1YzFjZjdjZjM3MmE1IiwidXNlcl9pZCI6MX0.hTTfp2T71Bf0C2eACECBNtiJl8vDj0jqAmgIZqWnYn4",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "airplane",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/book/api/hotelroomreservation/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"book",
+										"api",
+										"hotelroomreservation",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 06 Jan 2023 10:27:14 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "106"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"user\": 1,\n        \"check_in\": \"2021-10-01T12:30:00+03:30\",\n        \"check_out\": \"2021-10-09T12:30:00+03:30\",\n        \"hotel_room\": 1\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "villa reservation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczMDA3OTkzLCJpYXQiOjE2NzMwMDA3OTMsImp0aSI6IjlkZDdhMmYwODA3NDRhYjE4OTk1YzFjZjdjZjM3MmE1IiwidXNlcl9pZCI6MX0.hTTfp2T71Bf0C2eACECBNtiJl8vDj0jqAmgIZqWnYn4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "check_in",
+									"value": "2022-10-11 12:30",
+									"type": "text"
+								},
+								{
+									"key": "check_out",
+									"value": "2022-10-23 12:30",
+									"type": "text"
+								},
+								{
+									"key": "villa",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/book/api/villareservation/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"book",
+								"api",
+								"villareservation",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "villa reservation (successful create)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczMDA3OTkzLCJpYXQiOjE2NzMwMDA3OTMsImp0aSI6IjlkZDdhMmYwODA3NDRhYjE4OTk1YzFjZjdjZjM3MmE1IiwidXNlcl9pZCI6MX0.hTTfp2T71Bf0C2eACECBNtiJl8vDj0jqAmgIZqWnYn4",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "check_in",
+											"value": "2022-10-11 12:30",
+											"type": "text"
+										},
+										{
+											"key": "check_out",
+											"value": "2022-10-23 12:30",
+											"type": "text"
+										},
+										{
+											"key": "villa",
+											"value": "2",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/book/api/villareservation/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"book",
+										"api",
+										"villareservation",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 06 Jan 2023 11:03:14 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "99"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": 1,\n    \"check_in\": \"2022-10-11T12:30:00+03:30\",\n    \"check_out\": \"2022-10-23T12:30:00+03:30\",\n    \"villa\": 2\n}"
+						},
+						{
+							"name": "villa reservation (successful list)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczMDA3OTkzLCJpYXQiOjE2NzMwMDA3OTMsImp0aSI6IjlkZDdhMmYwODA3NDRhYjE4OTk1YzFjZjdjZjM3MmE1IiwidXNlcl9pZCI6MX0.hTTfp2T71Bf0C2eACECBNtiJl8vDj0jqAmgIZqWnYn4",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "check_in",
+											"value": "2022-10-11 12:30",
+											"type": "text"
+										},
+										{
+											"key": "check_out",
+											"value": "2022-10-23 12:30",
+											"type": "text"
+										},
+										{
+											"key": "villa",
+											"value": "2",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/book/api/villareservation/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"book",
+										"api",
+										"villareservation",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 06 Jan 2023 11:05:42 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "101"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"user\": 1,\n        \"check_in\": \"2022-10-11T12:30:00+03:30\",\n        \"check_out\": \"2022-10-23T12:30:00+03:30\",\n        \"villa\": 2\n    }\n]"
+						}
+					]
+				}
+			]
+		}
+	]
+}
