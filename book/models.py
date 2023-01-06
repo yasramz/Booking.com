@@ -12,7 +12,6 @@ class AbstractVehicleReservation(models.Model):
         (RESERVED, 'Reserved')
     )
 
-    reservation_time = models.DateTimeField()
     status = models.PositiveSmallIntegerField(choices=RESERVATION_CHOICES, default=RESERVED)
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
@@ -37,12 +36,10 @@ class AbstractQuarterReservation(models.Model):
         (APPROVED, 'approved')
     )
 
-    reservation_time = models.DateTimeField()
     status = models.PositiveSmallIntegerField(choices=RESERVATION_CHOICES, default=RESERVED)
     check_in = models.DateTimeField()
     check_out = models.DateTimeField()
-    duration = models.DurationField()
-    total_payment = models.IntegerField()
+    # total_payment = models.IntegerField()
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
 
