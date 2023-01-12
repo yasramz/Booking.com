@@ -1,4 +1,5 @@
 from django.db import models
+from discretions.models import AbstractComment, AbstractRate
 
 
 class Location(models.Model):
@@ -115,3 +116,28 @@ class VillaPrice(models.Model):
     is_valid = models.BooleanField(default=True)
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
+
+
+class HotelComment(AbstractComment):
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='hotel_comments')
+
+
+class HotelRoomComment(AbstractComment):
+    hotel = models.ForeignKey(HotelRoom, on_delete=models.CASCADE, related_name='hotel_room_comments')
+
+
+class VillaComment(AbstractComment):
+    hotel = models.ForeignKey(Villa, on_delete=models.CASCADE, related_name='villa_comments')
+
+
+class HotelRate(AbstractRate):
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='hotel_rates')
+
+
+class HotelRoomRate(AbstractRate):
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='hotel_room_rates')
+
+
+class VillaRate(AbstractRate):
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='villa_rates')
+
