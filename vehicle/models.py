@@ -2,6 +2,8 @@ from typing import Tuple
 
 from django.db import models
 
+from discretions.models import AbstractComment, AbstractRate
+
 
 class AbstractVehicle(models.Model):
     INTERNATIONAL = 50
@@ -65,3 +67,11 @@ class FlightPrice(models.Model):
     is_valid = models.BooleanField(default=True)
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
+
+
+class FlightComment(AbstractComment):
+    hotel = models.ForeignKey(Flight, on_delete=models.CASCADE, related_name='flight_comments')
+
+
+class FlightRate(AbstractRate):
+    hotel = models.ForeignKey(Flight, on_delete=models.CASCADE, related_name='flight_rates')
