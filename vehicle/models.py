@@ -1,5 +1,4 @@
-from typing import Tuple
-
+from django.conf import settings
 from django.db import models
 
 from discretions.models import AbstractComment, AbstractRate
@@ -71,7 +70,12 @@ class FlightPrice(models.Model):
 
 class FlightComment(AbstractComment):
     hotel = models.ForeignKey(Flight, on_delete=models.CASCADE, related_name='flight_comments')
+    validated_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
+                                     related_name='validated_%(class)ss')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
+                             related_name='%(class)ss')
 
 
 class FlightRate(AbstractRate):
     hotel = models.ForeignKey(Flight, on_delete=models.CASCADE, related_name='flight_rates')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='%(class)ss')

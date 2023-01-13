@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from discretions.models import AbstractComment, AbstractRate
 
@@ -120,24 +121,38 @@ class VillaPrice(models.Model):
 
 class HotelComment(AbstractComment):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='hotel_comments')
+    validated_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
+                                     related_name='validated_%(class)ss')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
+                             related_name='%(class)ss')
 
 
 class HotelRoomComment(AbstractComment):
     hotel = models.ForeignKey(HotelRoom, on_delete=models.CASCADE, related_name='hotel_room_comments')
+    validated_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
+                                     related_name='validated_%(class)ss')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
+                             related_name='%(class)ss')
 
 
 class VillaComment(AbstractComment):
     hotel = models.ForeignKey(Villa, on_delete=models.CASCADE, related_name='villa_comments')
+    validated_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
+                                     related_name='validated_%(class)ss')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
+                             related_name='%(class)ss')
 
 
 class HotelRate(AbstractRate):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='hotel_rates')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='%(class)ss')
 
 
 class HotelRoomRate(AbstractRate):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='hotel_room_rates')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='%(class)ss')
 
 
 class VillaRate(AbstractRate):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='villa_rates')
-
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='%(class)ss')

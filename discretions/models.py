@@ -15,13 +15,9 @@ class AbstractComment(models.Model):
         (DELETED, 'Deleted')
     )
 
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
-                             related_name='user_comment')
     comment_body = models.TextField()
 
     status = models.PositiveSmallIntegerField(choices=STATUS_CHOICES, default=CREATED)
-    validated_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
-                                     related_name='validated_user')
 
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
@@ -31,7 +27,6 @@ class AbstractComment(models.Model):
 
 
 class AbstractRate(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='user_rate')
     rate = models.PositiveSmallIntegerField(validators=[MinValueValidator(1), MaxValueValidator(10)])
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
