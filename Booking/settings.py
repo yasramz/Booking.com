@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'vehicle.apps.VehicleConfig',
     'book.apps.BookConfig',
     'payment.apps.PaymentConfig',
+    'discretions.apps.DiscretionsConfig',
+
 
     'rest_framework',
     'rest_framework_simplejwt',
