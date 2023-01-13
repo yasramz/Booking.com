@@ -2,7 +2,15 @@ from rest_framework import serializers
 from vehicle.models import *
 
 
+class FlightPriceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FlightPrice
+        fields = ('id', 'price', 'is_valid', )
+
+
 class FlightSerializer(serializers.ModelSerializer):
+    price = FlightPriceSerializer()
+
     class Meta:
         model = Flight
         fields = ('id', 'title', 'origin', 'destination', 'price', 'company', 'arrive_time',
