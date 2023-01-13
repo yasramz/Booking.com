@@ -5,25 +5,25 @@ from quarter.models import *
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
-        fields = ('address', 'map_link', 'is_valid',)
+        fields = ('id', 'address', 'map_link', 'is_valid',)
 
 
 class HotelAvatarSerializer(serializers.ModelSerializer):
     class Meta:
         model = HotelAvatar
-        fields = ('avatar', 'is_valid',)
+        fields = ('id', 'avatar', 'is_valid',)
 
 
 class HotelRoomAvatarSerializer(serializers.ModelSerializer):
     class Meta:
         model = HotelRoomAvatar
-        fields = ('avatar', 'is_valid',)
+        fields = ('id', 'avatar', 'is_valid',)
 
 
 class VillaAvatarSerializer(serializers.ModelSerializer):
     class Meta:
         model = VillaAvatar
-        fields = ('avatar', 'is_valid',)
+        fields = ('id', 'avatar', 'is_valid',)
 
 
 class VillaSerializer(serializers.ModelSerializer):
@@ -56,7 +56,7 @@ class HotelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Hotel
-        fields = ('title', 'description', 'is_valid', 'hotel_avatars')
+        fields = ('id', 'title', 'description', 'is_valid', 'hotel_avatars')
 
     def create(self, validated_data):
         hotel_avatars = validated_data.pop('hotel_avatars', None)
@@ -78,7 +78,7 @@ class HotelRoomSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = HotelRoom
-        fields = ('title', 'description', 'capacity', 'price', 'facility', 'location', 'room_avatars',
+        fields = ('id', 'title', 'description', 'capacity', 'price', 'facility', 'location', 'room_avatars',
                   'hotel', 'is_valid',)
 
     def create(self, validated_data):
@@ -97,3 +97,51 @@ class HotelRoomSerializer(serializers.ModelSerializer):
 
         return hotel_room
 
+
+class HotelCommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HotelComment
+        fields = ('id', 'parent', 'comment_body', 'status', 'hotel', 'user', )
+
+    extra_kwarg = {
+        'parent': {'required': False},
+        'status': {'read_only': True},
+    }
+
+
+class HotelRoomCommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HotelRoomComment
+        fields = ('id', 'parent', 'comment_body', 'status', 'hotel', 'user', )
+        extra_kwarg = {
+            'parent': {'required': False},
+            'status': {'read_only': True},
+        }
+
+
+class VillaCommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VillaComment
+        fields = ('id', 'parent', 'comment_body', 'status', 'hotel', 'user', )
+        extra_kwarg = {
+            'parent': {'required': False},
+            'status': {'read_only': True},
+        }
+
+
+class HotelRateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HotelRate
+        fields = ('id', 'hotel', 'user', 'rate',)
+
+
+class HotelRoomRateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HotelRoomRate
+        fields = ('id', 'hotel', 'user', 'rate', )
+
+
+class VillaRateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VillaRate
+        fields = ('id', 'hotel', 'user', 'rate', )

@@ -11,7 +11,7 @@ class FlightReservationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = FlightReservation
-        fields = ('user', 'airplane')
+        fields = ('id', 'user', 'airplane')
 
     def create(self, validated_data):
         flight = Flight.objects.get(id=validated_data['airplane'].id)
@@ -27,7 +27,7 @@ class FlightReservationSerializer(serializers.ModelSerializer):
 class HotelRoomReservationSerializer(serializers.ModelSerializer):
     class Meta:
         model = HotelRoomReservation
-        fields = ('user', 'check_in', 'check_out', 'hotel_room')
+        fields = ('id', 'user', 'check_in', 'check_out', 'hotel_room')
 
     def create(self, validated_data):
         check_in = validated_data['check_in']
@@ -52,7 +52,7 @@ class VillaReservationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = VillaReservation
-        fields = ('user', 'check_in', 'check_out', 'villa')
+        fields = ('id', 'user', 'check_in', 'check_out', 'villa')
 
     def create(self, validated_data):
         check_in = validated_data['check_in']

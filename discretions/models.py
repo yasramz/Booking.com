@@ -14,7 +14,7 @@ class AbstractComment(models.Model):
         (REJECTED, 'Rejected'),
         (DELETED, 'Deleted')
     )
-
+    parent = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True)
     comment_body = models.TextField()
 
     status = models.PositiveSmallIntegerField(choices=STATUS_CHOICES, default=CREATED)
