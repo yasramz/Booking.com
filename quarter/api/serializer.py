@@ -77,7 +77,7 @@ class VillaSerializer(serializers.ModelSerializer):
     location = LocationSerializer()
     villa_avatars = VillaAvatarSerializer(many=True)
     price = VillaPriceSerializer()
-    preferred_currency = serializers.CharField(max_length=3)
+    preferred_currency = serializers.CharField(max_length=3, required=False)
 
     class Meta:
         model = Villa
