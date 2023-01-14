@@ -4,6 +4,7 @@ from vehicle.models import Flight
 from quarter.models import Villa, HotelRoom
 
 
+# --------------------------------------------- Flight Reservation Models ----------------------------------------------
 class AbstractVehicleReservation(models.Model):
     CANCELED = 1
     RESERVED = 2
@@ -24,8 +25,10 @@ class FlightReservation(AbstractVehicleReservation):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='vehicle_reservations')
     airplane = models.ForeignKey(Flight, on_delete=models.CASCADE, related_name='airplane_reservations')
     is_valid = models.BooleanField(default=True)
+# ----------------------------------------------------------------------------------------------------------------------
 
 
+# ---------------------------------------------- Quarter Reservation Models --------------------------------------------
 class AbstractQuarterReservation(models.Model):
     CANCELED = 1
     RESERVED = 2
@@ -54,3 +57,4 @@ class VillaReservation(AbstractQuarterReservation):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='villa_reservations')
     villa = models.ForeignKey(Villa, on_delete=models.CASCADE, related_name='villa_reservations')
     is_valid = models.BooleanField(default=True)
+# ----------------------------------------------------------------------------------------------------------------------
