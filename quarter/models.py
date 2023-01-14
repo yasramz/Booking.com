@@ -3,11 +3,13 @@ from django.db import models
 from discretions.models import AbstractComment, AbstractRate
 
 
+# ------------------------------------------------ Base Models ---------------------------------------------------------
 class Location(models.Model):
     address = models.TextField()
     map_link = models.TextField()
     country = models.TextField()
     city = models.TextField()
+
     is_valid = models.BooleanField(default=True)
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
@@ -36,8 +38,10 @@ class AbstractQuarter(models.Model):
 
     def __str__(self):
         return self.title
+# ----------------------------------------------------------------------------------------------------------------------
 
 
+# -------------------------------------------- Main Quarter Related Models ---------------------------------------------
 class Hotel(models.Model):
     ONE_STAR = 1
     TWO_STAR = 2
@@ -61,14 +65,6 @@ class Hotel(models.Model):
     modified_time = models.DateTimeField(auto_now=True)
 
 
-class HotelAvatar(models.Model):
-    avatar = models.ImageField(upload_to='quarter/hotel/avatar')
-    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='hotel_avatars')
-    is_valid = models.BooleanField(default=True)
-    created_time = models.DateTimeField(auto_now_add=True)
-    modified_time = models.DateTimeField(auto_now=True)
-
-
 class Villa(AbstractQuarter):
     AVAILABLE = 1
     FULL = 2
@@ -82,6 +78,23 @@ class Villa(AbstractQuarter):
     price = models.ForeignKey('VillaPrice', on_delete=models.CASCADE, related_name='villa_price')
 
 
+class HotelRoom(AbstractQuarter):
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
+    # availableness = None
+    is_valid = models.BooleanField(default=True)
+    price = models.ForeignKey('HotelRoomPrice', on_delete=models.CASCADE, related_name='hotel_room_price')
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+# ------------------------------------------ Avatar Related Models -----------------------------------------------------
+class HotelAvatar(models.Model):
+    avatar = models.ImageField(upload_to='quarter/hotel/avatar')
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='hotel_avatars')
+    is_valid = models.BooleanField(default=True)
+    created_time = models.DateTimeField(auto_now_add=True)
+    modified_time = models.DateTimeField(auto_now=True)
+
+
 class VillaAvatar(models.Model):
     avatar = models.ImageField(upload_to='quarter/villa/avatar')
     quarter = models.ForeignKey(Villa, on_delete=models.CASCADE, related_name='villa_avatars')
@@ -90,21 +103,16 @@ class VillaAvatar(models.Model):
     modified_time = models.DateTimeField(auto_now=True)
 
 
-class HotelRoom(AbstractQuarter):
-    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
-    # availableness = None
-    is_valid = models.BooleanField(default=True)
-    price = models.ForeignKey('HotelRoomPrice', on_delete=models.CASCADE, related_name='hotel_room_price')
-
-
 class HotelRoomAvatar(models.Model):
     avatar = models.ImageField(upload_to='quarter/hotelroom/avatar')
     quarter = models.ForeignKey(HotelRoom, on_delete=models.CASCADE, related_name='room_avatars')
     is_valid = models.BooleanField(default=True)
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
+# ----------------------------------------------------------------------------------------------------------------------
 
 
+# ----------------------------------------------- Price Models ---------------------------------------------------------
 class HotelRoomPrice(models.Model):
     price = models.IntegerField()
     is_valid = models.BooleanField(default=True)
@@ -117,8 +125,11 @@ class VillaPrice(models.Model):
     is_valid = models.BooleanField(default=True)
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
+# ----------------------------------------------------------------------------------------------------------------------
 
 
+# ---------------------------------------- Comment & Rate Related Models -----------------------------------------------
+# Comment:
 class HotelComment(AbstractComment):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='hotel_comments')
     validated_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True,
@@ -143,6 +154,7 @@ class VillaComment(AbstractComment):
                              related_name='%(class)ss')
 
 
+# Rate:
 class HotelRate(AbstractRate):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='hotel_rates')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='%(class)ss')
@@ -156,3 +168,4 @@ class HotelRoomRate(AbstractRate):
 class VillaRate(AbstractRate):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='villa_rates')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='%(class)ss')
+# ----------------------------------------------------------------------------------------------------------------------
