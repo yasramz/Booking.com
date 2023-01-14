@@ -7,6 +7,7 @@ from quarter.models import *
 from filtering.filter import VillaFilterSet, HotelRoomFilterSet
 
 
+# ------------------------------------------- Quarter Main ViewSets ----------------------------------------------------
 class VillaViewSet(mixins.RetrieveModelMixin,
                    mixins.ListModelMixin,
                    viewsets.GenericViewSet):
@@ -30,6 +31,12 @@ class HotelRoomViewSet(mixins.RetrieveModelMixin,
     filterset_class = HotelRoomFilterSet
 
 
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+# ------------------------------------------ Comment & Rate ViewSets ---------------------------------------------------
+
+# Comment:
 class HotelCommentViewSet(mixins.CreateModelMixin,
                           mixins.UpdateModelMixin,
                           viewsets.GenericViewSet):
@@ -57,6 +64,7 @@ class VillaCommentViewSet(mixins.CreateModelMixin,
     permission_classes = [IsAuthenticated]
 
 
+# Rate:
 class HotelRateViewSet(mixins.CreateModelMixin,
                        mixins.UpdateModelMixin,
                        viewsets.GenericViewSet):
@@ -82,3 +90,6 @@ class VillaRateViewSet(mixins.CreateModelMixin,
     queryset = HotelComment.objects.all()
     authentication_classes = (JWTAuthentication,)
     permission_classes = [IsAuthenticated]
+
+
+# ----------------------------------------------------------------------------------------------------------------------
