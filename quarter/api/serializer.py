@@ -2,12 +2,17 @@ from rest_framework import serializers, exceptions
 from quarter.models import *
 
 
+# ----------------------------------------------- Location Serializer --------------------------------------------------
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
         fields = ('id', 'address', 'map_link', 'is_valid',)
 
 
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+# ----------------------------------------------- Price Serializers ----------------------------------------------------
 class HotelRoomPriceSerializer(serializers.ModelSerializer):
     class Meta:
         model = HotelRoomPrice
@@ -20,6 +25,10 @@ class VillaPriceSerializer(serializers.ModelSerializer):
         fields = ('id', 'price', 'is_valid',)
 
 
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+# ---------------------------------------------- Avatar Serializers ----------------------------------------------------
 class HotelAvatarSerializer(serializers.ModelSerializer):
     class Meta:
         model = HotelAvatar
@@ -36,6 +45,30 @@ class VillaAvatarSerializer(serializers.ModelSerializer):
     class Meta:
         model = VillaAvatar
         fields = ('id', 'avatar', 'is_valid',)
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+# ------------------------------------------- Main Quarter Serializers -------------------------------------------------
+class HotelSerializer(serializers.ModelSerializer):
+    hotel_avatars = HotelAvatarSerializer(many=True)
+
+    class Meta:
+        model = Hotel
+        fields = ('id', 'title', 'description', 'is_valid', 'hotel_avatars')
+
+    def create(self, validated_data):
+        hotel_avatars = validated_data.pop('hotel_avatars', None)
+        try:
+            hotel_avatars = Hotel.objects.create(**hotel_avatars)
+
+        except(ValueError, TypeError):
+            raise exceptions.ValidationError('data in not valid')
+
+        hotel = Villa.objects.create(hotel_avatars=hotel_avatars, **validated_data)
+
+        return hotel
 
 
 class VillaSerializer(serializers.ModelSerializer):
@@ -64,26 +97,6 @@ class VillaSerializer(serializers.ModelSerializer):
         return villa
 
 
-class HotelSerializer(serializers.ModelSerializer):
-    hotel_avatars = HotelAvatarSerializer(many=True)
-
-    class Meta:
-        model = Hotel
-        fields = ('id', 'title', 'description', 'is_valid', 'hotel_avatars')
-
-    def create(self, validated_data):
-        hotel_avatars = validated_data.pop('hotel_avatars', None)
-        try:
-            hotel_avatars = Hotel.objects.create(**hotel_avatars)
-
-        except(ValueError, TypeError):
-            raise exceptions.ValidationError('data in not valid')
-
-        hotel = Villa.objects.create(hotel_avatars=hotel_avatars, **validated_data)
-
-        return hotel
-
-
 class HotelRoomSerializer(serializers.ModelSerializer):
     hotel = HotelSerializer()
     location = LocationSerializer()
@@ -107,15 +120,22 @@ class HotelRoomSerializer(serializers.ModelSerializer):
         except(ValueError, TypeError):
             raise exceptions.ValidationError('data in not valid')
 
-        hotel_room = HotelRoom.objects.create(hotel=hotel, location=location, room_avatars=room_avatars, **validated_data)
+        hotel_room = HotelRoom.objects.create(hotel=hotel, location=location, room_avatars=room_avatars,
+                                              **validated_data)
 
         return hotel_room
 
 
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+# ----------------------------------------- Comment & Rate Serializers -------------------------------------------------
+
+# Comment:
 class HotelCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = HotelComment
-        fields = ('id', 'parent', 'comment_body', 'status', 'hotel', 'user', )
+        fields = ('id', 'parent', 'comment_body', 'status', 'hotel', 'user',)
 
     extra_kwarg = {
         'parent': {'required': False},
@@ -126,7 +146,7 @@ class HotelCommentSerializer(serializers.ModelSerializer):
 class HotelRoomCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = HotelRoomComment
-        fields = ('id', 'parent', 'comment_body', 'status', 'hotel', 'user', )
+        fields = ('id', 'parent', 'comment_body', 'status', 'hotel', 'user',)
         extra_kwarg = {
             'parent': {'required': False},
             'status': {'read_only': True},
@@ -136,13 +156,14 @@ class HotelRoomCommentSerializer(serializers.ModelSerializer):
 class VillaCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = VillaComment
-        fields = ('id', 'parent', 'comment_body', 'status', 'hotel', 'user', )
+        fields = ('id', 'parent', 'comment_body', 'status', 'hotel', 'user',)
         extra_kwarg = {
             'parent': {'required': False},
             'status': {'read_only': True},
         }
 
 
+# Rate:
 class HotelRateSerializer(serializers.ModelSerializer):
     class Meta:
         model = HotelRate
@@ -152,10 +173,13 @@ class HotelRateSerializer(serializers.ModelSerializer):
 class HotelRoomRateSerializer(serializers.ModelSerializer):
     class Meta:
         model = HotelRoomRate
-        fields = ('id', 'hotel', 'user', 'rate', )
+        fields = ('id', 'hotel', 'user', 'rate',)
 
 
 class VillaRateSerializer(serializers.ModelSerializer):
     class Meta:
         model = VillaRate
-        fields = ('id', 'hotel', 'user', 'rate', )
+        fields = ('id', 'hotel', 'user', 'rate',)
+
+
+# ----------------------------------------------------------------------------------------------------------------------
