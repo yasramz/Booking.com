@@ -20,4 +20,15 @@ class VillaPaymentHistory(models.Model):
     is_valid = models.BooleanField(default=True)
     date = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+# ---------------------------------------------------- Currency --------------------------------------------------------
+class Currency(models.Model):
+    currency = models.CharField(max_length=3)
+    ratio = models.IntegerField()
+
+
 # ----------------------------------------------------------------------------------------------------------------------
