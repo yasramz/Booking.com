@@ -1,4 +1,6 @@
 from rest_framework import serializers, exceptions
+
+from payment.models import Currency
 from quarter.models import *
 
 
@@ -75,6 +77,7 @@ class VillaSerializer(serializers.ModelSerializer):
     location = LocationSerializer()
     villa_avatars = VillaAvatarSerializer(many=True)
     price = VillaPriceSerializer()
+    preferred_currency = serializers.CharField(max_length=3)
 
     class Meta:
         model = Villa
@@ -95,6 +98,16 @@ class VillaSerializer(serializers.ModelSerializer):
         villa = Villa.objects.create(location=location, **validated_data)
 
         return villa
+
+    def to_representation(self, instance):
+        representation = super(VillaSerializer, self).to_representation(instance)
+        if self['preferred_currency']:
+            currency = Currency.objects.get(currency=representation['preferred_currency'])
+            price = Villa.objects.get(id=representation['id']).price__price
+
+            representation['price'] = price * currency.ratio
+            
+        return representation
 
 
 class HotelRoomSerializer(serializers.ModelSerializer):
@@ -124,6 +137,16 @@ class HotelRoomSerializer(serializers.ModelSerializer):
                                               **validated_data)
 
         return hotel_room
+
+    def to_representation(self, instance):
+        representation = super(HotelRoomSerializer, self).to_representation(instance)
+        if self['preferred_currency']:
+            currency = Currency.objects.get(currency=representation['preferred_currency'])
+            price = HotelRoom.objects.get(id=representation['id']).price__price
+
+            representation['price'] = price * currency.ratio
+
+        return representation
 
 
 # ----------------------------------------------------------------------------------------------------------------------
