@@ -1,8 +1,10 @@
 from django.db import models
-from Booking import settings
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 
+# -------------------------------------------- Abstract Models ---------------------------------------------------------
+
+# These abstract models will be used in any app and for any model that needs to have comment & Rate ...
 class AbstractComment(models.Model):
     CREATED = 1
     APPROVED = 2
@@ -33,3 +35,6 @@ class AbstractRate(models.Model):
 
     class Meta:
         abstract = True
+
+
+# ----------------------------------------------------------------------------------------------------------------------
