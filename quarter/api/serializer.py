@@ -63,12 +63,12 @@ class HotelSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         hotel_avatars = validated_data.pop('hotel_avatars', None)
         try:
-            hotel_avatars = Hotel.objects.create(**hotel_avatars)
+            hotel_avatars = HotelAvatar.objects.create(**hotel_avatars)
 
         except(ValueError, TypeError):
             raise exceptions.ValidationError('data in not valid')
 
-        hotel = Villa.objects.create(hotel_avatars=hotel_avatars, **validated_data)
+        hotel = Hotel.objects.create(hotel_avatars=hotel_avatars, **validated_data)
 
         return hotel
 
@@ -81,8 +81,8 @@ class VillaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Villa
-        fields = ('id', 'title', 'description', 'capacity', 'price', 'facility', 'location', 'villa_avatars',
-                  'is_valid',)
+        fields = ('id', 'title', 'description', 'capacity', 'price',
+                  'facility', 'location', 'villa_avatars', 'is_valid', 'preferred_currency')
 
     def create(self, validated_data):
         location = validated_data.pop('location', None)
@@ -101,14 +101,14 @@ class VillaSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         representation = super(VillaSerializer, self).to_representation(instance)
-        if self['preferred_currency']:
+        if representation['preferred_currency'] is not None:
             currency = Currency.objects.get(currency=representation['preferred_currency'])
             price = Villa.objects.get(id=representation['id']).price__price
 
             representation['price'] = price * currency.ratio
-            
-        return representation
 
+        return representation
+    
 
 class HotelRoomSerializer(serializers.ModelSerializer):
     hotel = HotelSerializer()
@@ -119,7 +119,7 @@ class HotelRoomSerializer(serializers.ModelSerializer):
     class Meta:
         model = HotelRoom
         fields = ('id', 'title', 'description', 'capacity', 'price', 'facility', 'location', 'room_avatars',
-                  'hotel', 'is_valid',)
+                  'hotel', 'is_valid', 'preferred_currency')
 
     def create(self, validated_data):
         hotel = validated_data.pop('hotel', None)
@@ -203,6 +203,5 @@ class VillaRateSerializer(serializers.ModelSerializer):
     class Meta:
         model = VillaRate
         fields = ('id', 'hotel', 'user', 'rate',)
-
 
 # ----------------------------------------------------------------------------------------------------------------------
