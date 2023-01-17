@@ -3,6 +3,9 @@ from payment.api.serializer import HotelRoomPaymentHistorySerializer, VillaPayme
 from payment.models import HotelRoomPaymentHistory, VillaPaymentHistory
 
 
+# ---------------------------------------- Payment History ViewSets ----------------------------------------------------
+
+# Hotel Room:
 class HotelRoomPaymentHistoryViewSet(mixins.CreateModelMixin,
                                      mixins.UpdateModelMixin,
                                      viewsets.GenericViewSet):
@@ -11,9 +14,13 @@ class HotelRoomPaymentHistoryViewSet(mixins.CreateModelMixin,
     serializer_class = HotelRoomPaymentHistorySerializer
 
 
+# Villa:
 class VillaPaymentHistoryViewSet(mixins.CreateModelMixin,
                                  mixins.UpdateModelMixin,
                                  viewsets.GenericViewSet):
 
     queryset = VillaPaymentHistory.objects.all()
     serializer_class = VillaPaymentHistorySerializer
+
+
+# ----------------------------------------------------------------------------------------------------------------------
