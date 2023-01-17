@@ -53,6 +53,8 @@ class VillaAvatarSerializer(serializers.ModelSerializer):
 
 
 # ------------------------------------------- Main Quarter Serializers -------------------------------------------------
+
+# Hotel:
 class HotelSerializer(serializers.ModelSerializer):
     hotel_avatars = HotelAvatarSerializer(many=True)
 
@@ -73,6 +75,7 @@ class HotelSerializer(serializers.ModelSerializer):
         return hotel
 
 
+# Villa:
 class VillaSerializer(serializers.ModelSerializer):
     location = LocationSerializer()
     villa_avatars = VillaAvatarSerializer(many=True)
@@ -110,6 +113,7 @@ class VillaSerializer(serializers.ModelSerializer):
         return representation
     
 
+# Hotel Room:
 class HotelRoomSerializer(serializers.ModelSerializer):
     hotel = HotelSerializer()
     location = LocationSerializer()
