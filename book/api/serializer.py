@@ -7,6 +7,7 @@ from user.api.serializer import UserSerializer
 from vehicle.models import Flight
 
 
+# ------------------------------------------ Vehicle Reservation Serializers -------------------------------------------
 class FlightReservationSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -24,6 +25,12 @@ class FlightReservationSerializer(serializers.ModelSerializer):
             raise ObjectDoesNotExist('No sit available')
 
 
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+# ------------------------------------------ Quarter Reservation Serializers -------------------------------------------
+
+# Hotel Room:
 class HotelRoomReservationSerializer(serializers.ModelSerializer):
     class Meta:
         model = HotelRoomReservation
@@ -48,6 +55,7 @@ class HotelRoomReservationSerializer(serializers.ModelSerializer):
             return super(HotelRoomReservationSerializer, self).create(validated_data)
 
 
+# Villa:
 class VillaReservationSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -71,3 +79,6 @@ class VillaReservationSerializer(serializers.ModelSerializer):
             raise ObjectDoesNotExist('No such room available for this time duration!')
         else:
             return super(VillaReservationSerializer, self).create(validated_data)
+
+
+# ----------------------------------------------------------------------------------------------------------------------
