@@ -4,6 +4,7 @@ from book.models import FlightReservation, HotelRoomReservation, VillaReservatio
 from filtering.filter import HotelRoomReservationFilterSet, VillaReservationFilterSet
 
 
+# ---------------------------------------- Vehicle Reservation ViewSets ------------------------------------------------
 class FlightReservationViewSet(mixins.ListModelMixin,
                                mixins.CreateModelMixin,
                                viewsets.GenericViewSet):
@@ -11,6 +12,12 @@ class FlightReservationViewSet(mixins.ListModelMixin,
     serializer_class = FlightReservationSerializer
 
 
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+# ----------------------------------------- Quarter Reservation ViewSets -----------------------------------------------
+
+# Hotel Room:
 class HotelRoomReservationViewSet(mixins.ListModelMixin,
                                   mixins.CreateModelMixin,
                                   viewsets.GenericViewSet):
@@ -19,9 +26,13 @@ class HotelRoomReservationViewSet(mixins.ListModelMixin,
     filterset_class = HotelRoomReservationFilterSet
 
 
+# Villa:
 class VillaReservationViewSet(mixins.ListModelMixin,
                               mixins.CreateModelMixin,
                               viewsets.GenericViewSet):
     queryset = VillaReservation.objects.all()
     serializer_class = VillaReservationSerializer
     filterset_class = VillaReservationFilterSet
+
+
+# ----------------------------------------------------------------------------------------------------------------------
