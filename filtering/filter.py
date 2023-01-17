@@ -4,6 +4,9 @@ from vehicle.models import Flight
 from quarter.models import HotelRoom, Villa
 
 
+# --------------------------------------------- Quarter FilterSets -----------------------------------------------------
+
+# Hotel Room:
 class HotelRoomFilterSet(django_filters.FilterSet):
     title = django_filters.CharFilter('hotel__title')
     location = django_filters.CharFilter('location')
@@ -26,6 +29,7 @@ class HotelRoomReservationFilterSet(django_filters.FilterSet):
         fields = ()
 
 
+# Villa:
 class VillaFilterSet(django_filters.FilterSet):
     title = django_filters.CharFilter('title')
     location = django_filters.CharFilter('location')
@@ -48,6 +52,12 @@ class VillaReservationFilterSet(django_filters.FilterSet):
         fields = ()
 
 
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+# --------------------------------------------- Vehicle FilterSets -----------------------------------------------------
+
+# Flight:
 # class FlightReservationFilterSet(django_filters.FilterSet):
 #     origin = django_filters.DateFilter(field_name='airplane__origin', lookup_expr='gte')
 #     destination = django_filters.DateFilter(field_name='airplane__destination', lookup_expr='lt')
@@ -72,3 +82,6 @@ class FightFilterset(django_filters.FilterSet):
     class Meta:
         model = Flight
         fields = ()
+
+
+# ----------------------------------------------------------------------------------------------------------------------
