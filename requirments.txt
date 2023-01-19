@@ -8,4 +8,4 @@ django-filter==22.1
 django-extensions==3.2.1
 pydot==1.4.2
 django-minio-backend==3.3.2
-gunicorn==20.1.0
+gunicorn
